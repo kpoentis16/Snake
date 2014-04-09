@@ -9,15 +9,14 @@ int ycoord = 0;
 int direction = 0;
 
 //create variable for apple 
-int xapple = 4;
-int yapple = 4;
+int xapple = 0;
+int yapple = 0;
 
 //create a boolean statement for eating apples
 boolean ateApple = true;
 
 //create a speed variable
-int speed = 250;
-
+int speed = 570;
 
 void setup()
 {
@@ -32,7 +31,7 @@ void loop()
 //draw apple
    DrawPx(xapple,yapple,Red);
    
-//move the snake  
+//check buttons
   //each time through the loop check if button is pressed
   CheckButtonsPress();
   if(Button_Up)
@@ -46,7 +45,9 @@ void loop()
  
   if(Button_Left)
   direction=270;
-    
+ 
+  
+//move the snake  
   //if the direction is 0, add 1 to y
   //if the direction is 90, add 1 to x
   //if the direction is 180, decrease 1 from y
@@ -79,13 +80,18 @@ void loop()
   if(xcoord == xapple && ycoord == yapple)
   ateApple=true;
  
-//move apple after eating at random
+//If snake eats apple, beep, move new apple
   if(ateApple)
   {
     xapple = random (8);
     yapple = random(8);
     ateApple = false;
+    
+    Tone_Start(18182,50);  
+  
+    speed=speed-20;  
   }
+  
 }
 
 

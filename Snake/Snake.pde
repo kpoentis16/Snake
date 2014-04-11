@@ -16,7 +16,7 @@ int yapple = 0;
 boolean ateApple = true;
 
 //create a speed variable
-int speed = 570;
+int speed = 630;
 
 void setup()
 {
@@ -89,7 +89,7 @@ void loop()
     
     Tone_Start(18182,50);  
   
-    speed=speed-20;  
+    speed=speed-10;  
   }
   
 }
